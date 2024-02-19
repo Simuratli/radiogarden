@@ -1,38 +1,14 @@
-.App {
-  text-align: center;
+.map-container {
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.marker{
+  width: 10px; /* Adjust the size of the dot as needed */
+  height: 10px; /* Adjust the size of the dot as needed */
+  background-color: rgb(0, 255, 130);
+  border-radius: 50%; /* Ensures the dot is round */
+  box-shadow: 0 0 4px rgb(0, 255, 130), 0 0 5px rgb(0, 255, 130), 0 0 30px rgb(0, 255, 130), 0 0 40px rgb(0, 255, 130); /* Create the neon glow effect */
+  animation: neon-glow 1.5s infinite alternate; /* Animate the glow effect */
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
