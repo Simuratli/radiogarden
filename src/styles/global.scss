@@ -7,10 +7,9 @@
   font-family: "Lexend", sans-serif;
 }
 
+
 .map-container {
-  --vh: 9.32px;
   height: 100vh;
-  height: calc(var(--vh, 1vh) * 100);
 }
 
 .marker {
