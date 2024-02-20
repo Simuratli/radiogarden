@@ -8,10 +8,13 @@
 
   @media screen and (max-width: 600px) {
     width: 100%;
-    position: sticky;
-    bottom: 0;
+    position: absolute;
+    top: var(--safe-area-inset-top);
+    right: 0;
+    bottom: var(--tabbar-height);
     left: 0;
-    bottom: env(safe-area-inset-bottom)
+    pointer-events: none;
+    overflow: hidden;
   }
 
   &__menu {
