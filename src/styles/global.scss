@@ -7,17 +7,12 @@
   font-family: "Lexend", sans-serif;
 }
 
-
-
-
 .map-container {
   height: 100vh;
   @media screen and (max-width: 600px) {
     height: 95vh;
   }
 }
-
-
 
 .marker {
   width: 10px;

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from "react";
 import "../../styles/components/audio.scss";
-import { PlayButton } from "../../components";
+import { PlayButton, NextPrev } from "../../components";
 function Audio() {
   const audioRef = useRef<any>(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -25,28 +25,38 @@ function Audio() {
 
   return (
     <div className="audio">
-      <PlayButton
-        play={isPlaying}
-        onClick={() => {
-          setIsPlaying((prev) => !prev);
-          handlePlay();
-        }}
-      />
-      <input
-        value={volume}
-        onChange={handleChangeVolume}
-        type="range"
-        min={0}
-        max={100}
-      />
-      <audio ref={audioRef}>
-        <source
-          src={
-            "https://radio.garden/api/ara/content/listen/VBZNZCLB/channel.mp3?r=1&1708426717009"
-          }
-          type="audio/mpeg"
+      <div className="audio__content">
+        <h1>Listen.moe</h1>
+        <p>Japan</p>
+      </div>
+      <div className="audio__actions">
+        <div className="audio__buttons">
+          <NextPrev next={false} />
+          <PlayButton
+            play={isPlaying}
+            onClick={() => {
+              setIsPlaying((prev) => !prev);
+              handlePlay();
+            }}
+          />
+          <NextPrev next />
+        </div>
+        <input
+          value={volume}
+          onChange={handleChangeVolume}
+          type="range"
+          min={0}
+          max={100}
         />
-      </audio>
+        <audio ref={audioRef}>
+          <source
+            src={
+              "https://radio.garden/api/ara/content/listen/VBZNZCLB/channel.mp3?r=1&1708426717009"
+            }
+            type="audio/mpeg"
+          />
+        </audio>
+      </div>
     </div>
   );
 }
