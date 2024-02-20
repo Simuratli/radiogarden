@@ -1,0 +1,10 @@
+@import "../variables.scss";
+
+.audio {
+  padding: 20px;
+  background-color: $white;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

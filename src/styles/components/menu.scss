@@ -1,0 +1,70 @@
+@import "../variables.scss";
+
+.menu {
+  border-radius: 5px;
+
+  &__dropdown {
+    &__header {
+      padding: 40px 20px 20px 20px;
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(1px);
+      -webkit-backdrop-filter: blur(1px);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      cursor: pointer;
+      position: relative;
+
+      &__icon {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+        top: 5px;
+        left: 50%;
+        transform: translate(-50%, 0);
+        span {
+          display: block;
+          width: 50px;
+          height: 4px;
+          background-color: $violet;
+          border-radius: 10px;
+        }
+      }
+
+      &__text {
+        h1 {
+          color: $white;
+          display: flex;
+          gap: 10px;
+          align-items: center;
+        }
+
+        p {
+          color: $white;
+          padding-left: 35px;
+        }
+      }
+    }
+
+    &__content {
+      background-color: white;
+      min-height: 0;
+      overflow: hidden;
+      max-height: 0;
+      transition: 0.3s;
+
+      &.open {
+        min-height: 60vh;
+        max-height: 60vh;
+        overflow: auto;
+        transition: 0.3s;
+      }
+    }
+  }
+
+  &__content {
+    padding: 20px;
+    background-color: $darkWhite;
+  }
+}

@@ -1,5 +1,6 @@
-import "./App.css";
+import "./styles/global.scss";
 import { Earth } from "./components";
+import { Player } from "./containers";
 import { useStore } from "./store";
 import { useEffect } from "react";
 
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <div>
         <Earth />
+        <Player />
       </div>
     </div>
   );
