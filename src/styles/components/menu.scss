@@ -7,7 +7,7 @@
     &__header {
       padding: 40px 20px 20px 20px;
       background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      // box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
       backdrop-filter: blur(1px);
       -webkit-backdrop-filter: blur(1px);
       border-top-left-radius: 10px;
@@ -16,6 +16,11 @@
       cursor: pointer;
       position: relative;
 
+
+      @media screen and (max-width: 600px) {
+        padding: 20px 10px 10px 10px;
+      }
+
       &__icon {
         display: flex;
         justify-content: center;
@@ -23,12 +28,21 @@
         top: 5px;
         left: 50%;
         transform: translate(-50%, 0);
+        
+
+        @media screen and (max-width: 600px) {
+          top: 3px;
+        }
+
+
         span {
           display: block;
           width: 50px;
           height: 4px;
           background-color: $violet;
           border-radius: 10px;
+
+          
         }
       }
 
@@ -38,11 +52,15 @@
           display: flex;
           gap: 10px;
           align-items: center;
+          font-size: 24px;
+          
         }
 
         p {
           color: $white;
           padding-left: 35px;
+          font-size: 16px;
+          
         }
       }
     }
@@ -66,5 +84,8 @@
   &__content {
     padding: 20px;
     background-color: $darkWhite;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
   }
 }

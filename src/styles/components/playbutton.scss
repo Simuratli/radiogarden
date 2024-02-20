@@ -4,4 +4,9 @@
   width: auto;
   height: 50px;
   stroke: $violet;
+
+  @media screen and (max-width: 600px) {
+    height: 30px;
+  }
+
 }
