@@ -39,7 +39,7 @@ function Audio() {
         min={0}
         max={100}
       />
-      <audio ref={audioRef} autoPlay>
+      <audio ref={audioRef}>
         <source
           src={
             "https://radio.garden/api/ara/content/listen/VBZNZCLB/channel.mp3?r=1&1708426717009"
