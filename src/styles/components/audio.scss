@@ -12,10 +12,11 @@
   }
   @media screen and (max-width: 600px) {
     border-radius: 0;
-  }
-
-  @media screen and (max-width: 600px) {
+    // display: flex;
     padding: 10px;
+    // justify-content: space-between;
+    // align-items: center;
+    border-top: 1px solid $darkWhite;
   }
 
   &__buttons {

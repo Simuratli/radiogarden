@@ -80,9 +80,6 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
 
     &__card {
       display: flex;
@@ -106,6 +103,10 @@
           stroke: $violet;
         }
         color: $violet;
+      }
+
+      @media screen and (max-width: 600px) {
+        padding: 10px;
       }
     }
   }

@@ -1,6 +1,6 @@
 import React, { ChangeEvent, useRef, useState } from "react";
 import "../../styles/components/audio.scss";
-import { PlayButton, NextPrev } from "../../components";
+import { PlayButton, NextPrev, Volume } from "../../components";
 function Audio() {
   const audioRef = useRef<any>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -41,13 +41,12 @@ function Audio() {
           />
           <NextPrev next />
         </div>
-        <input
+        {/* <input
           value={volume}
           onChange={handleChangeVolume}
           type="range"
-          min={0}
-          max={100}
-        />
+        /> */}
+        <Volume min={0} max={100} onChange={handleChangeVolume} />
         <audio ref={audioRef} autoPlay>
           <source
             src={

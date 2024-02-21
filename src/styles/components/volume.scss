@@ -1,5 +1,9 @@
 @import "../variables.scss";
 
+.range {
+  flex: 1;
+}
+
 input[type="range"] {
   /* removing default appearance */
   -webkit-appearance: none;
@@ -11,6 +15,10 @@ input[type="range"] {
   /*  slider progress trick  */
   overflow: hidden;
   border-radius: 16px;
+
+  // @media screen and (max-width: 600px) {
+  //   display: none;
+  // }
 }
 
 /* Track: webkit browsers */
