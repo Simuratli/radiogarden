@@ -16,9 +16,9 @@ input[type="range"] {
   overflow: hidden;
   border-radius: 16px;
 
-  // @media screen and (max-width: 600px) {
-  //   display: none;
-  // }
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 /* Track: webkit browsers */

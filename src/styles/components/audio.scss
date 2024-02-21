@@ -12,10 +12,10 @@
   }
   @media screen and (max-width: 600px) {
     border-radius: 0;
-    // display: flex;
+    display: flex;
     padding: 10px;
-    // justify-content: space-between;
-    // align-items: center;
+    justify-content: space-between;
+    align-items: center;
     border-top: 1px solid $darkWhite;
   }
 
@@ -32,6 +32,9 @@
 
   &__content {
     margin-bottom: 10px;
+    @media screen and (max-width: 600px) {
+      margin-bottom: 0;
+    }
     h1 {
       font-size: 24px;
       color: $violet;
