@@ -84,7 +84,7 @@
       display: none;
     }
 
-    &__card{
+    &__card {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -92,12 +92,12 @@
       padding: 10px 20px;
       cursor: pointer;
       gap: 5px;
-      h2{
+      h2 {
         font-size: 12px;
         font-weight: 400;
       }
 
-      &:hover{
+      &:hover {
         background-color: $darkWhite;
       }
     }
