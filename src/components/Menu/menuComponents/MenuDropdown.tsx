@@ -1,7 +1,20 @@
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
+import { MenuAboutCard, MenuContentList } from "./";
 
 function MenuDropdown() {
+  const countries = [
+    {
+      country: "Angola",
+    },
+    {
+      country: "Brazil",
+    },
+    {
+      country: "Japan",
+    },
+  ];
+
   const [open, setOpen] = useState(false);
   return (
     <div className="menu__dropdown">
@@ -22,7 +35,8 @@ function MenuDropdown() {
         </div>
       </div>
       <div className={`menu__dropdown__content ${open && "open"}`}>
-        Any of content goes here
+        {/* <MenuAboutCard/> */}
+        <MenuContentList title={"List of countries"} data={countries} />
       </div>
     </div>
   );

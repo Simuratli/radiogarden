@@ -4,10 +4,10 @@ import { MenuContentCard } from "./";
 function MenuContent() {
   return (
     <div className="menu__content">
-      <MenuContentCard type={MenuContentCardEnumType.countries} />
-      <MenuContentCard type={MenuContentCardEnumType.discover} />
-      <MenuContentCard type={MenuContentCardEnumType.about} />
-      <MenuContentCard type={MenuContentCardEnumType.settings} />
+      <MenuContentCard active={true} type={MenuContentCardEnumType.countries} />
+      <MenuContentCard active={false} type={MenuContentCardEnumType.discover} />
+      <MenuContentCard active={false} type={MenuContentCardEnumType.about} />
+      <MenuContentCard active={false} type={MenuContentCardEnumType.settings} />
     </div>
   );
 }
