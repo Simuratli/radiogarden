@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import "../../styles/components/menu.scss";
 import ReactCountryFlag from "react-country-flag";
+import Circle from "../../assets/Circle";
+import Settings from "../../assets/Settings";
+import Info from "../../assets/Info";
+import Map from "../../assets/Map";
+
 
 function Menu() {
   const [open, setOpen] = useState(false);
@@ -24,10 +29,27 @@ function Menu() {
           </div>
         </div>
         <div className={`menu__dropdown__content ${open && "open"}`}>
-          content datatatat
+          Any of content goes here
         </div>
       </div>
-      <div className="menu__content">icons goes here</div>
+      <div className="menu__content">
+          <div className="menu__content__card">
+            <Map/>
+            <h2>Countries</h2>
+          </div>
+          <div className="menu__content__card">
+            <Circle/>
+            <h2>Discover</h2>
+          </div>
+          <div className="menu__content__card">
+            <Info/>
+            <h2>About</h2>
+          </div>
+          <div className="menu__content__card">
+            <Settings/>
+            <h2>Settings</h2>
+          </div>
+      </div>
     </nav>
   );
 }

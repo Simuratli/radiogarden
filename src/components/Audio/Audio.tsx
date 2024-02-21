@@ -3,7 +3,7 @@ import "../../styles/components/audio.scss";
 import { PlayButton, NextPrev } from "../../components";
 function Audio() {
   const audioRef = useRef<any>(null);
-  const [isPlaying, setIsPlaying] = useState(true);
+  const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(100);
 
   const handlePlay = () => {
@@ -48,7 +48,7 @@ function Audio() {
           min={0}
           max={100}
         />
-        <audio ref={audioRef}>
+        <audio ref={audioRef} autoPlay>
           <source
             src={
               "https://radio.garden/api/ara/content/listen/VBZNZCLB/channel.mp3?r=1&1708426717009"
