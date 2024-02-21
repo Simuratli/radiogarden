@@ -14,3 +14,9 @@ export interface MenuContentListPropTypes {
   data: any[];
   title: string;
 }
+
+export interface MenuDropdownPropType {
+  country?: string;
+  flag?: string;
+  city?: string;
+}

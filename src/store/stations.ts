@@ -1,15 +1,6 @@
 import { StateCreator } from "zustand";
 import axios from "axios";
-
-export interface StationType {
-  boost: boolean;
-  country: string;
-  geo: [number, number];
-  id: string;
-  size: number;
-  title: string;
-  url: string;
-}
+import { StationType } from "./select";
 
 export interface StationsState {
   stations: StationType[];

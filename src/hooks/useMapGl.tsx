@@ -5,7 +5,7 @@ mapboxgl.accessToken =
   "pk.eyJ1Ijoic2ltdXJhdGxpIiwiYSI6ImNsc3N5Z283NTBtMnAya211eDV5NXA2MWYifQ.Ezm-c5DtNWk3oWiW-z-Tgg";
 
 export function useMapGl() {
-  const { stations } = useStore();
+  const { stations, selectStation } = useStore();
   const mapContainer = useRef<any>(null);
   const map = useRef<any>(null);
   const [lng, setLng] = useState(0);
@@ -31,7 +31,7 @@ export function useMapGl() {
         el.className = "marker";
 
         el.addEventListener("click", () => {
-          window.alert(marker.country);
+          selectStation(marker);
         });
 
         // Add markers to the map.

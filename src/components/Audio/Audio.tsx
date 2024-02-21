@@ -1,10 +1,22 @@
-import React, { ChangeEvent, useRef, useState } from "react";
+import React, { ChangeEvent, useRef, useState, useEffect } from "react";
 import "../../styles/components/audio.scss";
 import { PlayButton, NextPrev, Volume } from "../../components";
-function Audio() {
+import { AudioPropTypes } from "./Audio.types";
+function Audio({ station }: AudioPropTypes) {
+  useEffect(() => {
+    if (station) {
+      setIsPlaying(false);
+      setUpdate(true);
+      setTimeout(() => {
+        setUpdate(false);
+      }, 100);
+    }
+  }, [station]);
+
   const audioRef = useRef<any>(null);
-  const [isPlaying, setIsPlaying] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(true);
   const [volume, setVolume] = useState(100);
+  const [update, setUpdate] = useState(false);
 
   const handlePlay = () => {
     if (audioRef.current) {
@@ -26,8 +38,8 @@ function Audio() {
   return (
     <div className="audio">
       <div className="audio__content">
-        <h1>Listen.moe</h1>
-        <p>Japan</p>
+        <h1>{station ? station.name : "Select station"}</h1>
+        <p>{station ? station.country : "-"}</p>
       </div>
       <div className="audio__actions">
         <div className="audio__buttons">
@@ -41,20 +53,17 @@ function Audio() {
           />
           <NextPrev next />
         </div>
-        {/* <input
+        <Volume
           value={volume}
+          min={0}
+          max={100}
           onChange={handleChangeVolume}
-          type="range"
-        /> */}
-        <Volume min={0} max={100} onChange={handleChangeVolume} />
-        <audio ref={audioRef} autoPlay>
-          <source
-            src={
-              "https://radio.garden/api/ara/content/listen/VBZNZCLB/channel.mp3?r=1&1708426717009"
-            }
-            type="audio/mpeg"
-          />
-        </audio>
+        />
+        {!update && (
+          <audio ref={audioRef} autoPlay>
+            <source src={station ? station.url : ""} type="audio/mpeg" />
+          </audio>
+        )}
       </div>
     </div>
   );

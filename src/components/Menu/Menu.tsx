@@ -1,10 +1,15 @@
 import "../../styles/components/menu.scss";
 import { MenuDropdown, MenuContent } from "./menuComponents";
+import { MenuPropTypes } from "./Menu.types";
 
-function Menu() {
+function Menu({ station }: MenuPropTypes) {
   return (
     <nav className="menu">
-      <MenuDropdown />
+      <MenuDropdown
+        flag={station?.flag}
+        city={station?.title}
+        country={station?.country}
+      />
       <MenuContent />
     </nav>
   );

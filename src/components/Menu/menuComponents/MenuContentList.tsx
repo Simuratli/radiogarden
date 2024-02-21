@@ -6,8 +6,8 @@ function MenuContentList({ data, title }: MenuContentListPropTypes) {
   return (
     <div className="menu__countries">
       <h1 className="menu__countries__heading">{title}</h1>
-      {data.map((item) => {
-        return <MenuCountriesListCard text={item.country} />;
+      {data.map((item, index) => {
+        return <MenuCountriesListCard key={index} text={item.country} />;
       })}
     </div>
   );

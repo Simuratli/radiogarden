@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
 import { MenuAboutCard, MenuContentList } from "./";
+import { MenuDropdownPropType } from "./menuComponent.types";
 
-function MenuDropdown() {
+function MenuDropdown({ country, city, flag }: MenuDropdownPropType) {
   const countries = [
     {
       country: "Angola",
@@ -29,9 +30,10 @@ function MenuDropdown() {
         </div>
         <div className="menu__dropdown__header__text">
           <h1>
-            <ReactCountryFlag countryCode="DE" svg /> Germany
+            <ReactCountryFlag countryCode={flag ? flag : "JP"} svg />{" "}
+            {city ? city : "Select Radio Station"}
           </h1>
-          <p>View all stations</p>
+          <p>{country ? country : "View all stations"}</p>
         </div>
       </div>
       <div className={`menu__dropdown__content ${open && "open"}`}>
