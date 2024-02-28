@@ -4,6 +4,7 @@ import { PlayButton, NextPrev, Volume } from "../../components";
 import { AudioPropTypes } from "./Audio.types";
 function Audio({ station }: AudioPropTypes) {
   useEffect(() => {
+    console.log(station, "teststat");
     if (station) {
       setIsPlaying(false);
       setUpdate(true);

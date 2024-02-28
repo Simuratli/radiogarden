@@ -4,3 +4,4 @@ export { default as Audio } from "./Audio";
 export { default as PlayButton } from "./PlayButton";
 export { default as Volume } from "./Volume";
 export { default as NextPrev } from "./NextPrev";
+export { default as Circle } from "./Circle";

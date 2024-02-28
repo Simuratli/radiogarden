@@ -14,7 +14,7 @@ export interface StationType {
 
 export interface SelectingState {
   selectedStation: StationType | null;
-  selectStation: (station: StationType) => void;
+  selectStation: (station: StationType | null) => void;
 }
 
 export const useSelectState: StateCreator<SelectingState> = (set) => ({
