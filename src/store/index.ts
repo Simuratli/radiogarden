@@ -1,12 +1,12 @@
 import { create } from "zustand";
 import { useStationsState, StationsState } from "./stations";
 import { useSelectState, SelectingState } from "./select";
-import { useSelectCircle, CircleState } from "./circle";
+import { useLoading, LoadingState } from "./loading";
 
-export const useStore = create<StationsState & SelectingState & CircleState>()(
+export const useStore = create<StationsState & SelectingState & LoadingState>()(
   (...a) => ({
     ...useStationsState(...a),
     ...useSelectState(...a),
-    ...useSelectCircle(...a),
+    ...useLoading(...a),
   }),
 );

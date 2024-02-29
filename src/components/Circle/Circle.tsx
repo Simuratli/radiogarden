@@ -4,12 +4,11 @@ import { useStore } from "../../store";
 
 function Circle() {
   const circleRef = useRef<HTMLDivElement | null>(null);
-  const { setCirclePosition } = useStore();
 
   useEffect(() => {
-    if (circleRef.current) {
-      setCirclePosition(circleRef.current.getBoundingClientRect());
-    }
+    // if (circleRef.current) {
+    //   setCirclePosition(circleRef.current.getBoundingClientRect());
+    // }
   }, [circleRef]);
 
   return <div ref={circleRef} className="circle"></div>;

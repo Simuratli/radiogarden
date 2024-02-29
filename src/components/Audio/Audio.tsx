@@ -2,9 +2,11 @@ import React, { ChangeEvent, useRef, useState, useEffect } from "react";
 import "../../styles/components/audio.scss";
 import { PlayButton, NextPrev, Volume } from "../../components";
 import { AudioPropTypes } from "./Audio.types";
+import { useStore } from "../../store";
 function Audio({ station }: AudioPropTypes) {
+  const { loading, setLoading } = useStore();
+
   useEffect(() => {
-    console.log(station, "teststat");
     if (station) {
       setIsPlaying(false);
       setUpdate(true);
@@ -14,7 +16,7 @@ function Audio({ station }: AudioPropTypes) {
     }
   }, [station]);
 
-  const audioRef = useRef<any>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(true);
   const [volume, setVolume] = useState(100);
   const [update, setUpdate] = useState(false);
@@ -46,6 +48,7 @@ function Audio({ station }: AudioPropTypes) {
         <div className="audio__buttons">
           <NextPrev next={false} />
           <PlayButton
+            isLoading={loading}
             play={isPlaying}
             onClick={() => {
               setIsPlaying((prev) => !prev);
@@ -61,7 +64,16 @@ function Audio({ station }: AudioPropTypes) {
           onChange={handleChangeVolume}
         />
         {!update && (
-          <audio ref={audioRef} autoPlay>
+          <audio
+            onLoadedMetadata={() => {
+              setLoading(false);
+            }}
+            onLoadStart={() => {
+              station && setLoading(true);
+            }}
+            ref={audioRef}
+            autoPlay
+          >
             <source src={station ? station.url : ""} type="audio/mpeg" />
           </audio>
         )}

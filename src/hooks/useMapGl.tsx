@@ -5,14 +5,12 @@ mapboxgl.accessToken =
   "pk.eyJ1Ijoic2ltdXJhdGxpIiwiYSI6ImNsc3N5Z283NTBtMnAya211eDV5NXA2MWYifQ.Ezm-c5DtNWk3oWiW-z-Tgg";
 
 export function useMapGl() {
-  const { stations, selectStation } = useStore();
+  const { stations, selectStation, selectedStation } = useStore();
   const mapContainer = useRef<any>(null);
   const map = useRef<any>(null);
   const [lng, setLng] = useState(0);
   const [lat, setLat] = useState(0);
-  const [zoom, setZoom] = useState(0);
-
-  const [place, setPlace] = useState([0, 0]);
+  const [zoom, setZoom] = useState(1);
 
   function calculateDistance(point1: any, point2: any) {
     // Calculate the distance between two points using Haversine formula
@@ -71,7 +69,7 @@ export function useMapGl() {
         type: "circle",
         source: "point",
         paint: {
-          "circle-radius": 50, // Radius of the circle in pixels
+          "circle-radius": 30, // Radius of the circle in pixels
           "circle-color": "transparent", // Transparent background
           "circle-stroke-color": "white", // Border color
           "circle-stroke-width": 2, // Border width
@@ -84,8 +82,6 @@ export function useMapGl() {
         // Prevent the default map drag behavior.
         geojson.features[0].geometry.coordinates = [lng, lat];
         map.current.getSource("point").setData(geojson);
-
-        setPlace([lng, lat]);
       });
     });
   });
@@ -97,6 +93,7 @@ export function useMapGl() {
         const el = document.createElement("div");
         el.classList.add("marker");
         el.className = "marker";
+        el.id = marker.id;
 
         el.addEventListener("click", () => {
           selectStation(marker);
@@ -106,9 +103,9 @@ export function useMapGl() {
         map.current.on("move", () => {
           const { lng, lat } = map.current.getCenter();
           const distance = calculateDistance(marker.geo, [lng, lat]);
-          if (distance < 82606) {
+          if (distance < 52606) {
             el.classList.add("whiteMarker");
-            el.click();
+
             el.click();
           } else {
             el.classList.remove("whiteMarker");
