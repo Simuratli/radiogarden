@@ -33,6 +33,15 @@
   cursor: pointer;
 }
 
+.whiteMarker {
+  background-color: white !important;
+  box-shadow:
+    0 0 4px white,
+    0 0 5px white,
+    0 0 30px white,
+    0 0 40px white !important;
+}
+
 .App {
   height: 100vh;
   overflow: hidden;

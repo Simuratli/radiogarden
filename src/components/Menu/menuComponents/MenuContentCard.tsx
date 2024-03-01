@@ -1,6 +1,6 @@
 import React from "react";
 import Circle from "../../../assets/Circle";
-import Settings from "../../../assets/Settings";
+import Navigate from "../../../assets/Navigate";
 import Info from "../../../assets/Info";
 import Map from "../../../assets/Map";
 
@@ -8,8 +8,21 @@ import {
   MenuContentCardType,
   MenuContentCardEnumType,
 } from "./menuComponent.types";
+import { useMapGl } from "../../../hooks/useMapGl";
+import { useStore } from "../../../store";
 
 function MenuContentCard({ type, active }: MenuContentCardType) {
+  const { selectedStation } = useStore();
+  const { map } = useMapGl();
+
+  const handleClickNavigate = () => {
+    map.current.flyTo({
+      center: selectedStation?.geo,
+      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
+      duration: 1200,
+    });
+  };
+
   switch (type) {
     case MenuContentCardEnumType.about:
       return (
@@ -27,9 +40,12 @@ function MenuContentCard({ type, active }: MenuContentCardType) {
       );
     case MenuContentCardEnumType.settings:
       return (
-        <div className={`menu__content__card ${active && "active"}`}>
-          <Settings />
-          <h2>Settings</h2>
+        <div
+          onClick={handleClickNavigate}
+          className={`menu__content__card ${active && "active"}`}
+        >
+          <Navigate />
+          <h2>Navigate</h2>
         </div>
       );
     case MenuContentCardEnumType.discover:

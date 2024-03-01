@@ -1,0 +1,13 @@
+.circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: fixed;
+  border: 2px dashed white;
+  top: 0;
+  z-index: 100;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
