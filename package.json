@@ -47,7 +47,7 @@
     ]
   },
   "devDependencies": {
-    "@types/mapbox-gl": "^2.7.21",
+    "@types/mapbox-gl": "^3.1.0",
     "@types/react-howler": "^5.2.3",
     "prettier": "3.2.5"
   }
