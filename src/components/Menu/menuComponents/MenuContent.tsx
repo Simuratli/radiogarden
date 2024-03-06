@@ -2,23 +2,14 @@ import { MenuContentCardEnumType } from "./menuComponent.types";
 import { MenuContentCard } from "./";
 import { MenuEnum } from "../../../store/menu";
 import { useStore } from "../../../store";
-import { useMapGl } from "../../../hooks/useMapGl";
 function MenuContent() {
-  const { current, setCurrent, selectedStation } = useStore();
-  const { map } = useMapGl();
-
-  const handleClickNavigate = () => {
-    map.current.flyTo({
-      center: selectedStation?.geo,
-      essential: true, // this animation is considered essential with respect to prefers-reduced-motion
-      duration: 1200,
-    });
-  };
+  const { current, setCurrent, setOpen } = useStore();
 
   return (
     <div className="menu__content">
       <MenuContentCard
         onClick={() => {
+          setOpen(true);
           setCurrent(MenuEnum.COUNTRIES);
         }}
         active={current === MenuEnum.COUNTRIES}
@@ -26,6 +17,7 @@ function MenuContent() {
       />
       <MenuContentCard
         onClick={() => {
+          setOpen(true);
           setCurrent(MenuEnum.DISCOVER);
         }}
         active={current === MenuEnum.DISCOVER}
@@ -34,13 +26,17 @@ function MenuContent() {
       <MenuContentCard
         onClick={() => {
           setCurrent(MenuEnum.ABOUT);
+          setOpen(true);
         }}
         active={current === MenuEnum.ABOUT}
         type={MenuContentCardEnumType.about}
       />
       <MenuContentCard
-        onClick={handleClickNavigate}
-        active={false}
+        onClick={() => {
+          setOpen(true);
+          setCurrent(MenuEnum.SETTINGS);
+        }}
+        active={current === MenuEnum.SETTINGS}
         type={MenuContentCardEnumType.settings}
       />
     </div>

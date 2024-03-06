@@ -8,13 +8,13 @@ export interface StationsState {
   getStations: () => void;
 }
 
-export const useStationsState: StateCreator<StationsState> = (set) => ({
+export const useStationsState: StateCreator<StationsState> = (set, get) => ({
   stations: [],
   setStations: (stations) => set({ stations: stations }),
   getStations: async () => {
     const response = await axios.get(
       "https://raw.githubusercontent.com/Simuratli/radioapi/master/db.json",
     );
-    set({ stations: response.data.places });
+    get().stations.length === 0 && set({ stations: response.data.places });
   },
 });

@@ -1,8 +1,8 @@
 import React from "react";
 import Circle from "../../../assets/Circle";
-import Navigate from "../../../assets/Navigate";
 import Info from "../../../assets/Info";
 import Map from "../../../assets/Map";
+import Settings from "../../../assets/Settings";
 import {
   MenuContentCardType,
   MenuContentCardEnumType,
@@ -36,8 +36,8 @@ function MenuContentCard({ type, active, onClick }: MenuContentCardType) {
           onClick={onClick}
           className={`menu__content__card ${active && "active"}`}
         >
-          <Navigate />
-          <h2>Navigate</h2>
+          <Settings />
+          <h2>Settings</h2>
         </div>
       );
     case MenuContentCardEnumType.discover:

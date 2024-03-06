@@ -4,6 +4,7 @@ export enum MenuEnum {
   COUNTRIES = "COUNTRIES",
   DISCOVER = "DISCOVER",
   ABOUT = "ABOUT",
+  SETTINGS = "SETTINGS",
 }
 export interface MenuState {
   open: boolean;

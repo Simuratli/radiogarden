@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap");
-
+@import "./variables.scss";
 * {
   padding: 0;
   margin: 0;
@@ -15,9 +15,9 @@
 }
 
 .marker {
-  width: 10px;
+  width: 15px;
   /* Adjust the size of the dot as needed */
-  height: 10px;
+  height: 15px;
   /* Adjust the size of the dot as needed */
   background-color: rgb(0, 255, 130);
   border-radius: 50%;
@@ -28,18 +28,22 @@
     0 0 30px rgb(0, 255, 130),
     0 0 40px rgb(0, 255, 130);
   /* Create the neon glow effect */
-  animation: neon-glow 1.5s infinite alternate;
   /* Animate the glow effect */
   cursor: pointer;
 }
 
 .whiteMarker {
-  background-color: white !important;
+  background-color: $violet !important;
+  height: 15px;
+  border-radius: 50%;
+  width: 15px;
+  cursor: pointer;
   box-shadow:
-    0 0 4px white,
-    0 0 5px white,
-    0 0 30px white,
-    0 0 40px white !important;
+    0 0 4px $violet,
+    0 0 5px $violet,
+    0 0 30px $violet,
+    0 0 40px $violet;
+  /* Create the neon glow effect */
 }
 
 .App {

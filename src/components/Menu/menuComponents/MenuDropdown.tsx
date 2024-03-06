@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
-import { MenuContentList, MenuAboutCard } from "./";
+import { MenuContentList, MenuAboutCard, MenuSettings } from "./";
 import { MenuDropdownPropType } from "./menuComponent.types";
 import { useStore } from "../../../store";
 import { MenuEnum } from "../../../store/menu";
@@ -28,6 +28,8 @@ function MenuDropdown({ country, city, flag }: MenuDropdownPropType) {
             data={stations}
           />
         );
+      case MenuEnum.SETTINGS:
+        return <MenuSettings key={Math.random()} />;
       default:
         return (
           <MenuContentList

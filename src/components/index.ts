@@ -5,3 +5,4 @@ export { default as PlayButton } from "./PlayButton";
 export { default as Volume } from "./Volume";
 export { default as Loader } from "./Loader";
 export { default as NextPrev } from "./NextPrev";
+export { default as Circle } from "./Circle";
