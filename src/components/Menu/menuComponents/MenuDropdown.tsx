@@ -1,19 +1,50 @@
 import React, { useState } from "react";
 import ReactCountryFlag from "react-country-flag";
-import { MenuContentList } from "./";
+import { MenuContentList, MenuAboutCard } from "./";
 import { MenuDropdownPropType } from "./menuComponent.types";
 import { useStore } from "../../../store";
+import { MenuEnum } from "../../../store/menu";
 
 function MenuDropdown({ country, city, flag }: MenuDropdownPropType) {
-  const { stations } = useStore();
+  const { stations, open, setOpen, current } = useStore();
 
-  const [open, setOpen] = useState(false);
+  const showSpesificTab = () => {
+    switch (current) {
+      case MenuEnum.ABOUT:
+        return <MenuAboutCard key={Math.random()} />;
+      case MenuEnum.COUNTRIES:
+        return (
+          <MenuContentList
+            key={Math.random()}
+            title={"List of countries"}
+            data={stations}
+          />
+        );
+      case MenuEnum.DISCOVER:
+        return (
+          <MenuContentList
+            key={Math.random()}
+            title={"List of Radios"}
+            data={stations}
+          />
+        );
+      default:
+        return (
+          <MenuContentList
+            key={Math.random()}
+            title={"List of countries"}
+            data={stations}
+          />
+        );
+    }
+  };
+
   return (
     <div className="menu__dropdown">
       <div
         className="menu__dropdown__header"
         onClick={() => {
-          setOpen((prev) => !prev);
+          setOpen(!open);
         }}
       >
         <div className="menu__dropdown__header__icon">
@@ -28,8 +59,7 @@ function MenuDropdown({ country, city, flag }: MenuDropdownPropType) {
         </div>
       </div>
       <div className={`menu__dropdown__content ${open && "open"}`}>
-        {/* <MenuAboutCard/> */}
-        <MenuContentList title={"List of countries"} data={stations} />
+        {showSpesificTab()}
       </div>
     </div>
   );

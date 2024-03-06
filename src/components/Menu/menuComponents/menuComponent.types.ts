@@ -8,6 +8,7 @@ export enum MenuContentCardEnumType {
 export interface MenuContentCardType {
   type: MenuContentCardEnumType;
   active: boolean;
+  onClick?: () => void;
 }
 
 export interface MenuContentListPropTypes {
