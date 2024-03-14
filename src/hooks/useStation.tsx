@@ -23,7 +23,7 @@ export function useStation() {
   }, []);
 
   useEffect(() => {
-    if (currentLocation) {
+    if (currentLocation?.lat || currentLocation?.lat) {
       map.current?.flyTo({
         center: [currentLocation.lon, currentLocation.lat],
         essential: true, // this animation is considered essential with respect to prefers-reduced-motion
